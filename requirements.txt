@@ -1,0 +1,10 @@
+streamlit
+pandas
+bcrypt
+pendulum
+yagmail
+fpdf2
+openpyxl
+python-dotenv
+streamlit-aggrid
+streamlit-echarts
