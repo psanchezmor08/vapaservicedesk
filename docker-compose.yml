@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  vapa-service-desk:
+    build: .
+    container_name: vapa_service_desk
+    restart: always
+    ports:
+      - "8501:8501"
+    volumes:
+      # Mapeo de la base de datos para que sea persistente en el host
+      - ./gestion_incidencias_v3.db:/app/gestion_incidencias_v3.db
+      # Mapeo de la carpeta de archivos subidos
+      - ./archivos_subidos:/app/archivos_subidos
+      # Mapeo del archivo de variables de entorno
+      - .env:/app/.env
+    environment:
+      - PYTHONUNBUFFERED=1
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+networks:
+  default:
+    name: vapa_network
