@@ -18,7 +18,7 @@ services:
     # El comando mágico que clona, enlaza los datos, instala e inicia
     command: >
       sh -c "apt-get update && apt-get install -y git &&
-      if [ ! -d '.git' ]; then git clone https://github.com/TU_USUARIO/TU_REPO.git .; else git pull; fi &&
+      if [ ! -d '.git' ]; then git clone https://github.com/psanchezmor08/vapaservicedesk.git .; else git pull; fi &&
       ln -sf /datos_persistentes/gestion_incidencias_v3.db /app/gestion_incidencias_v3.db &&
       rm -rf /app/archivos_subidos &&
       ln -sfn /datos_persistentes /app/archivos_subidos &&
