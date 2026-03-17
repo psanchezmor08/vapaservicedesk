@@ -28,7 +28,7 @@ EMAIL_EMISOR = os.getenv("EMAIL_EMISOR", "correo_por_defecto@gmail.com")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD", "password_por_defecto") 
 
 # --- 3. CONFIGURACIÓN DE LA PÁGINA Y CSS ---
-st.set_page_config(page_title="VAPA Service Desk", layout="wide", page_icon="🟨")
+st.set_page_config(page_title="VAPA Service Desk", layout="wide", page_icon="logo_vapa.png")
 
 def cargar_css_corporativo():
     st.markdown("""
