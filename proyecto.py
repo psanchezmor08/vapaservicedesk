@@ -222,9 +222,11 @@ def login_ldap(username, password):
 
     except LDAPException as e:
         print(f"[LDAP] Error: {e}")
+        st.error(f"[LDAP] Error de conexión: {e}")
         return (None, None)
     except Exception as e:
         print(f"[LDAP] Error inesperado: {e}")
+        st.error(f"[LDAP] Error inesperado: {e}")
         return (None, None)
 
 
