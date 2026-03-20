@@ -1,5 +1,4 @@
 version: '3.8'
-
 services:
   vapa-servicedesk:
     image: python:3.11-slim
@@ -7,15 +6,12 @@ services:
     restart: unless-stopped
     ports:
       - "8501:8501"
-    environment:
-      # Sustituye tu archivo .env poniendo aquí tus credenciales.
-      - EMAIL_EMISOR=tu_correo@gmail.com
-      - EMAIL_PASSWORD=tu_contraseña
+    env_file:
+      - .env
     volumes:
       # CAMBIA ESTO: Ruta en tu NAS donde guardaremos la BD y los adjuntos a salvo
       - /ruta/real/en/tu/nas/vapa_datos:/datos_persistentes
     working_dir: /app
-    # El comando mágico que clona, enlaza los datos, instala e inicia
     command: >
       sh -c "apt-get update && apt-get install -y git &&
       if [ ! -d '.git' ]; then git clone https://github.com/psanchezmor08/vapaservicedesk.git .; else git pull; fi &&
