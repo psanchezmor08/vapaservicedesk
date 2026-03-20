@@ -1,7 +1,10 @@
 version: '3.8'
 services:
   vapa-servicedesk:
-    image: python:3.11-slim
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: vapa_servicedesk:latest
     container_name: vapa_servicedesk
     restart: unless-stopped
     ports:
@@ -10,10 +13,8 @@ services:
       - /ruta/real/en/tu/nas/vapa_datos:/datos_persistentes
     working_dir: /app
     command: >
-      sh -c "apt-get update && apt-get install -y git &&
-      if [ ! -d '.git' ]; then git clone https://github.com/psanchezmor08/vapaservicedesk.git .; else git pull; fi &&
+      sh -c "git pull &&
       ln -sf /datos_persistentes/gestion_incidencias_v3.db /app/gestion_incidencias_v3.db &&
       rm -rf /app/archivos_subidos &&
       ln -sfn /datos_persistentes /app/archivos_subidos &&
-      pip install --no-cache-dir -r requirements.txt &&
       streamlit run proyecto.py --server.port=8501 --server.address=0.0.0.0"
