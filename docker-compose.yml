@@ -6,10 +6,7 @@ services:
     restart: unless-stopped
     ports:
       - "8501:8501"
-    env_file:
-      - .env
     volumes:
-      # CAMBIA ESTO: Ruta en tu NAS donde guardaremos la BD y los adjuntos a salvo
       - /ruta/real/en/tu/nas/vapa_datos:/datos_persistentes
     working_dir: /app
     command: >
