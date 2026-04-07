@@ -18,7 +18,7 @@ from streamlit_echarts import st_echarts
 # ─────────────────────────────────────────────
 BASE_DIR        = os.path.dirname(os.path.abspath(__file__))
 CARPETA_SUBIDAS = os.path.join(BASE_DIR, "archivos_subidos")
-LOGO_PATH       = os.path.join(BASE_DIR, "logo_vapa.png")
+LOGO_PATH       = os.path.join(BASE_DIR, "logovapa.png")
 DB_PATH         = os.path.join(BASE_DIR, "gestion_incidencias_v3.db")
 
 load_dotenv(os.path.join(BASE_DIR, ".env"))
@@ -31,7 +31,7 @@ if not os.path.exists(CARPETA_SUBIDAS):
 st.set_page_config(
     page_title="VAPA Service Desk",
     layout="wide",
-    page_icon="🎯",
+    page_icon="logovapa.png",
     initial_sidebar_state="expanded"
 )
 
